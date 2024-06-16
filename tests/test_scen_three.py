@@ -8,7 +8,7 @@ import os
 
 
 class SbisHomePage:
-    def init(self, browser):
+    def __init__(self, browser):
         self.browser = browser
         self.link = "https://sbis.ru"
         self.anchor_xpath = '//*[@id="container"]/div[2]/div[1]/div[3]/div[3]/ul/li[8]/a'
@@ -26,16 +26,16 @@ class SbisHomePage:
         btn = self.browser.find_element(By.PARTIAL_LINK_TEXT, self.download_button_partial_link_text)
         action = ActionChains(self.browser)
         action.move_to_element(btn).click().perform()
-        time.sleep(10)  # Ждем завершения загрузки файла
 
-class Sc3SbisHomePage:
-    def download_file(self):
+class TestSbisHomePage:
+    def test_download_file(self):
         browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
         page = SbisHomePage(browser)
 
         page.open()
         page.navigate_to_download()
         page.download_file()
+        time.sleep(10)
 
         # Проверка размера файла
         file_path = "/home/dbalynin/Downloads/sbisplugin-setup-web.exe"
@@ -46,5 +46,3 @@ class Sc3SbisHomePage:
         os.remove(file_path)
 
         browser.quit()
-
-Sc3SbisHomePage().download_file()

@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 import time
 
 class SbisContactsPage:
-    def init(self, browser):
+    def __init__(self, browser):
         self.browser = browser
         self.link = "https://sbis.ru/contacts/"
         self.anchor_xpath = '//*[@id="container"]/div[2]/div[1]/div[5]/div[1]/span/span'
@@ -28,8 +28,8 @@ class SbisContactsPage:
     def get_current_url(self):
         return self.browser.current_url
 
-class Sc2SbisContactsPage:
-    def region_navigation(self):
+class TestSbisContactsPage:
+    def test_region_navigation(self):
         browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
         page = SbisContactsPage(browser)
 
@@ -38,10 +38,11 @@ class Sc2SbisContactsPage:
         assert current_url1 == 'https://sbis.ru/contacts/69-tverskaya-oblast?tab=clients'
 
         page.click_anchor()
-        page.select_region(41)
+        time.sleep(3)
+        page.select_region(43)
+        time.sleep(3)
         current_url2 = page.get_current_url()
         assert current_url2 == 'https://sbis.ru/contacts/41-kamchatskij-kraj?tab=clients'
 
         browser.quit()
 
-Sc2SbisContactsPage().region_navigation()
