@@ -47,5 +47,4 @@ class Sc3SbisHomePage:
 
         browser.quit()
 
-inst_cs3 = Sc3SbisHomePage()
-inst_cs3.download_file()
+Sc3SbisHomePage().download_file()

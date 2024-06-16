@@ -31,7 +31,7 @@ class SbisContactsPage:
 class Sc2SbisContactsPage:
     def region_navigation(self):
         browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-        page = Sc2SbisContactsPage(browser)
+        page = SbisContactsPage(browser)
 
         page.open()
         current_url1 = page.get_current_url()
@@ -44,4 +44,4 @@ class Sc2SbisContactsPage:
 
         browser.quit()
 
-Sc2SbisContactsPage.region_navigation(self='self')
+Sc2SbisContactsPage().region_navigation()

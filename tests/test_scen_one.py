@@ -24,12 +24,12 @@ class SbisContactsPage:
         anchor.click()
 
     def get_pic_size(self, index):
-        pic_xpath = f'{self.pic_xpath_prefix}{index}/a/div[1]/img'
+        pic_xpath = f'{self.pic_xpath_prefix}[{index}]/a/div[1]/img'
         pic_size = self.browser.find_element(By.XPATH, pic_xpath).size
         return pic_size['height'], pic_size['width']
 
-class Sc1SbisContactsPage:
-    def pic_sizes(self):
+class TestSbisContactsPage:
+    def test_pic_sizes(self):
         browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
         page = SbisContactsPage(browser)
 
@@ -42,11 +42,9 @@ class Sc1SbisContactsPage:
         pic3_height, pic3_width = page.get_pic_size(3)
         pic4_height, pic4_width = page.get_pic_size(4)
 
-        assert pic1_width == pic2_width == pic3_width == pic4_width, 'pic width wrong'
-        assert pic1_height == pic2_height == pic3_height == pic4_height, 'pic height wrong'
+        assert pic1_width == pic2_width == pic3_width == pic4_width, 'pic width все плохо'
+        assert pic1_height == pic2_height == pic3_height == pic4_height, 'pic height все плохо'
 
         browser.quit()
 
 
-inst_sc1 = Sc1SbisContactsPage()
-inst_sc1.pic_sizes()

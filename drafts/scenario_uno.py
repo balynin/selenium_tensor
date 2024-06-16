@@ -14,6 +14,7 @@ browser.execute_script("arguments[0].scrollIntoView(true);", anchor)
 anchor.click()
 
 pic1_size = browser.find_element(By.XPATH, '/html/body/div[1]/div/div/div[2]/div[1]/div[2]/div[1]/div/div/div[1]/div/div[4]/div[2]/div[1]/a/div[1]/img').size
+                                                 #/html/body/div[1]/div/div/div[2]/div[1]/div[2]/div[1]/div/div/div[1]/div/div[4]/div[2]/div1/a/div[1]/img
 pic1_height = pic1_size['height']
 pic1_width = pic1_size['width']
 
