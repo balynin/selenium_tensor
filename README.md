@@ -2,6 +2,11 @@
 2. ***Записал в паттерне POM***
 3. ***Вынес Page классы отдельно***
 
+Result	Test	                                                        Duration\	
+Passed	tests/test_scen_one.py::TestSbisContactsPage::test_pic_sizes	00:00:29\
+Passed	tests/test_scen_three.py::TestSbisHomePage::test_download_file	00:00:28\
+Passed	tests/test_scen_two.py::TestSbisContactsPage::test_region_navigation	00:00:29\
+
 Тестовое задание на позицию разработчика в
 тестировании (Программист-тестировщик).
 Правила выполнения задания:
