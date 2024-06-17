@@ -1,10 +1,9 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
 from pages.sbis_home import SbisHomePage
 import time
 import os
+import logging
 
+LOGGER = logging.getLogger(__name__)
 
 class TestSbisHomePage:
     def test_download_file(self, browser):
@@ -22,3 +21,5 @@ class TestSbisHomePage:
 
         # Удаление файла после проверки
         os.remove(file_path)
+
+        LOGGER.critical('test pass all fine')

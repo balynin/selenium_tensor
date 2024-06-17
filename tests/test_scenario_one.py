@@ -1,4 +1,7 @@
 from pages.sbis_contacts import SbisContactsPage
+import logging
+
+LOGGER = logging.getLogger(__name__)
 
 
 class TestSbisContactsPage:
@@ -19,3 +22,4 @@ class TestSbisContactsPage:
 
 
 
+        LOGGER.critical('test pass all fine')
