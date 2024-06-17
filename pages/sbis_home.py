@@ -1,14 +1,10 @@
-from selenium import webdriver
 from selenium.webdriver import ActionChains
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 import time
-import os
 
 
 class SbisHomePage:
-    def init(self, browser):
+    def __init__(self, browser):
         self.browser = browser
         self.link = "https://sbis.ru"
         self.anchor_xpath = '//*[@id="container"]/div[2]/div[1]/div[3]/div[3]/ul/li[8]/a'
